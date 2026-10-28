@@ -6,6 +6,7 @@ ROOT=Path.cwd(); OUT=ROOT/'evidence'; OUT.mkdir(exist_ok=True)
 STATE=ROOT/'isolated'; STATE.mkdir(exist_ok=True)
 TOKEN=secrets.token_hex(32); phase='setup'; stopping=False; gateway=None; mock_calls=[]; samples=[]; results=[]
 SEARCH_ENABLED=os.environ.get('BENCH_SEARCH')=='1'
+LEAN=os.environ.get('BENCH_LEAN')=='1'
 (OUT/'environment.json').write_text(json.dumps({'platform':os.uname()._asdict() if hasattr(os.uname(),'_asdict') else list(os.uname()),'cpu_count':os.cpu_count(),'clock_ticks_per_second':os.sysconf('SC_CLK_TCK'),'meminfo':Path('/proc/meminfo').read_text(),'cgroup':Path('/proc/self/cgroup').read_text()},indent=2))
 def metrics():
     rows={}
@@ -22,6 +23,7 @@ def metrics():
         selected |= extra
     procs=[]
     for pid in selected:
+        if pid not in rows:continue
         try:
             m={}
             for line in Path(f'/proc/{pid}/smaps_rollup').read_text().splitlines():
@@ -29,7 +31,7 @@ def metrics():
                 if sep and v.strip().split()[0].isdigit():m[k]=int(v.split()[0])
             status=Path(f'/proc/{pid}/status').read_text()
             hwm=next((int(x.split()[1]) for x in status.splitlines() if x.startswith('VmHWM:')),0)
-            procs.append({**rows[pid],**{k:m.get(k,0) for k in ['Rss','Pss','SwapPss']},'VmHWM':hwm})
+            procs.append({**rows[pid],**{k:m.get(k,0) for k in ['Rss','Pss','SwapPss']},'VmHWM':hwm,'comm':Path(f'/proc/{pid}/comm').read_text().strip()})
         except (OSError,ValueError):pass
     mem={x.split(':')[0]:int(x.split()[1]) for x in Path('/proc/meminfo').read_text().splitlines()}
     row={'time':time.time(),'phase':phase,'processes':procs,'rss_kib':sum(p['Rss'] for p in procs),'pss_kib':sum(p['Pss'] for p in procs),'mem_available_kib':mem['MemAvailable'],'swap_used_kib':mem['SwapTotal']-mem['SwapFree'],'memory_psi':Path('/proc/pressure/memory').read_text()}
@@ -78,6 +80,10 @@ if SEARCH_ENABLED:
     config['plugins']={'load':{'paths':[str(ROOT/'node_modules/@openclaw/duckduckgo-plugin')]},'entries':{'duckduckgo':{'enabled':True}}}
     config['tools']['allow'].append('web_search')
     config['tools']['web']['search']={'enabled':True,'provider':'duckduckgo'}
+if LEAN:
+    config.setdefault('plugins',{}).update({'allow':['openai','duckduckgo'],'slots':{'memory':'none'}})
+    config['tools']['toolSearch']=False
+(OUT/'test-config.json').write_text(json.dumps(config,indent=2).replace(TOKEN,'[REDACTED_LOCAL_GATEWAY_TOKEN]'))
 (STATE/'config.json').write_text(json.dumps(config));os.chmod(STATE/'config.json',0o600)
 env={'PATH':os.environ['PATH'],'HOME':str(STATE),'OPENCLAW_STATE_DIR':str(STATE/'state'),'OPENCLAW_CONFIG_PATH':str(STATE/'config.json'),'OPENCLAW_NO_RESPAWN':'1','LANG':'C.UTF-8'}
 def start(label):
@@ -141,4 +147,4 @@ finally:
         rows=[x for x in samples if x['phase']==label and x['processes']]
         if rows:summary[label]={'count':len(rows),'median_pss_mib':statistics.median(x['pss_kib'] for x in rows)/1024,'peak_pss_mib':max(x['pss_kib'] for x in rows)/1024,'peak_tree_rss_mib':max(x['rss_kib'] for x in rows)/1024}
     (OUT/'summary.json').write_text(json.dumps({'phases':summary,'requests':results,'mock_provider_calls':mock_calls,'model_quality':'NOT_VERIFIED_SYNTHETIC_UPSTREAM','real_search':'INSPECT_TOOL_RESULTS' if SEARCH_ENABLED else 'NOT_VERIFIED_DISABLED','deepseek_search':'NOT_VERIFIED_NO_KEY','gateway_exit':gateway.returncode if gateway else None,'gateway_group_remaining':group_alive,'sample_interval_seconds':.5},indent=2))
-    if not summary or any('fatal' in x for x in results):raise SystemExit(1)
+    if not summary or any('fatal' in x or 'error_type' in x for x in results):raise SystemExit(1)
