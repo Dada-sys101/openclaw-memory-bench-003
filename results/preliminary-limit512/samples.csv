@@ -1,0 +1,17 @@
+unix_time,phase,tree_rss_kib,tree_pss_kib,process_count,mem_available_kib,host_swap_used_kib,cgroup_memory_current_bytes,cgroup_memory_peak_bytes,cgroup_events
+1793178230.3143332,startup_1,0,0,0,15115320,0,13602816,13602816,low 0;high 0;max 0;oom 0;oom_kill 0;oom_group_kill 0
+1793178230.8175786,startup_1,105600,104576,1,15087720,0,69693440,69693440,low 0;high 0;max 0;oom 0;oom_kill 0;oom_group_kill 0
+1793178231.320689,startup_1,135964,134940,1,15076636,0,98684928,98947072,low 0;high 0;max 0;oom 0;oom_kill 0;oom_group_kill 0
+1793178231.8292089,startup_1,165904,164880,1,15049448,0,130179072,130179072,low 0;high 0;max 0;oom 0;oom_kill 0;oom_group_kill 0
+1793178232.33312,startup_1,185388,184364,1,15036992,0,146722816,146984960,low 0;high 0;max 0;oom 0;oom_kill 0;oom_group_kill 0
+1793178232.8380601,startup_1,209220,208196,1,15021200,0,173191168,176025600,low 0;high 0;max 0;oom 0;oom_kill 0;oom_group_kill 0
+1793178233.3455982,startup_1,250272,249248,1,15003232,0,211832832,211832832,low 0;high 0;max 0;oom 0;oom_kill 0;oom_group_kill 0
+1793178233.8522599,startup_1,355072,304680,2,14942584,0,269733888,269733888,low 0;high 0;max 0;oom 0;oom_kill 0;oom_group_kill 0
+1793178234.3612423,startup_1,370936,320544,2,14926712,0,286695424,287596544,low 0;high 0;max 0;oom 0;oom_kill 0;oom_group_kill 0
+1793178234.8724763,startup_1,468364,368307,3,14886896,0,336605184,337461248,low 0;high 0;max 0;oom 0;oom_kill 0;oom_group_kill 0
+1793178235.396683,startup_1,492100,388754,3,14858236,0,360529920,361291776,low 0;high 0;max 0;oom 0;oom_kill 0;oom_group_kill 0
+1793178235.9059608,startup_1,545268,441922,3,14798400,0,416628736,416628736,low 0;high 0;max 0;oom 0;oom_kill 0;oom_group_kill 0
+1793178236.4151318,startup_1,570680,467334,3,14773592,0,443088896,443088896,low 0;high 0;max 0;oom 0;oom_kill 0;oom_group_kill 0
+1793178236.9305453,startup_1,640112,536766,3,14721928,0,515526656,515526656,low 0;high 0;max 0;oom 0;oom_kill 0;oom_group_kill 0
+1793178237.4439182,startup_1,660264,556918,3,14692164,0,536825856,536825856,low 0;high 0;max 0;oom 0;oom_kill 0;oom_group_kill 0
+1793178237.9450786,startup_1,0,0,0,15062580,0,16531456,536870912,low 0;high 0;max 69;oom 1;oom_kill 1;oom_group_kill 0

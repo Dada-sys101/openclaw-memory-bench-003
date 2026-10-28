@@ -1,0 +1,231 @@
+{
+  "startup_1": {
+    "seconds": 9.19,
+    "samples": 19,
+    "pss_median_mib": 387.21,
+    "pss_peak_mib": 717.12,
+    "rss_median_mib": 484.29,
+    "rss_peak_mib": 819.62,
+    "early30_pss_median_mib": 387.21,
+    "late30_pss_median_mib": 387.21,
+    "cpu_pct_one_core": 123.64,
+    "max_processes": 3
+  },
+  "idle": {
+    "seconds": 0.0,
+    "samples": 1,
+    "pss_median_mib": 756.5,
+    "pss_peak_mib": 756.5,
+    "rss_median_mib": 859.15,
+    "rss_peak_mib": 859.15,
+    "early30_pss_median_mib": 756.5,
+    "late30_pss_median_mib": 756.5,
+    "cpu_pct_one_core": null,
+    "max_processes": 3
+  },
+  "startup_2": {
+    "seconds": 9.17,
+    "samples": 19,
+    "pss_median_mib": 381.01,
+    "pss_peak_mib": 716.82,
+    "rss_median_mib": 419.33,
+    "rss_peak_mib": 819.32,
+    "early30_pss_median_mib": 381.01,
+    "late30_pss_median_mib": 381.01,
+    "cpu_pct_one_core": 110.09,
+    "max_processes": 3
+  },
+  "restart_idle": {
+    "seconds": 0.0,
+    "samples": 1,
+    "pss_median_mib": 755.11,
+    "pss_peak_mib": 755.11,
+    "rss_median_mib": 857.73,
+    "rss_peak_mib": 857.73,
+    "early30_pss_median_mib": 755.11,
+    "late30_pss_median_mib": 755.11,
+    "cpu_pct_one_core": null,
+    "max_processes": 3
+  },
+  "_verification": {
+    "requests_total": 33,
+    "gateway_model_path_verified": 0,
+    "tool_roundtrips": 0,
+    "requests_with_errors": [
+      {
+        "phase": "single_conversation",
+        "error_type": "URLError",
+        "provider_calls": 0
+      },
+      {
+        "phase": "continuous_20turns",
+        "error_type": "URLError",
+        "provider_calls": 0
+      },
+      {
+        "phase": "continuous_20turns",
+        "error_type": "URLError",
+        "provider_calls": 0
+      },
+      {
+        "phase": "continuous_20turns",
+        "error_type": "URLError",
+        "provider_calls": 0
+      },
+      {
+        "phase": "continuous_20turns",
+        "error_type": "URLError",
+        "provider_calls": 0
+      },
+      {
+        "phase": "continuous_20turns",
+        "error_type": "URLError",
+        "provider_calls": 0
+      },
+      {
+        "phase": "continuous_20turns",
+        "error_type": "URLError",
+        "provider_calls": 0
+      },
+      {
+        "phase": "continuous_20turns",
+        "error_type": "URLError",
+        "provider_calls": 0
+      },
+      {
+        "phase": "continuous_20turns",
+        "error_type": "URLError",
+        "provider_calls": 0
+      },
+      {
+        "phase": "continuous_20turns",
+        "error_type": "URLError",
+        "provider_calls": 0
+      },
+      {
+        "phase": "continuous_20turns",
+        "error_type": "URLError",
+        "provider_calls": 0
+      },
+      {
+        "phase": "continuous_20turns",
+        "error_type": "URLError",
+        "provider_calls": 0
+      },
+      {
+        "phase": "continuous_20turns",
+        "error_type": "URLError",
+        "provider_calls": 0
+      },
+      {
+        "phase": "continuous_20turns",
+        "error_type": "URLError",
+        "provider_calls": 0
+      },
+      {
+        "phase": "continuous_20turns",
+        "error_type": "URLError",
+        "provider_calls": 0
+      },
+      {
+        "phase": "continuous_20turns",
+        "error_type": "URLError",
+        "provider_calls": 0
+      },
+      {
+        "phase": "continuous_20turns",
+        "error_type": "URLError",
+        "provider_calls": 0
+      },
+      {
+        "phase": "continuous_20turns",
+        "error_type": "URLError",
+        "provider_calls": 0
+      },
+      {
+        "phase": "continuous_20turns",
+        "error_type": "URLError",
+        "provider_calls": 0
+      },
+      {
+        "phase": "continuous_20turns",
+        "error_type": "URLError",
+        "provider_calls": 0
+      },
+      {
+        "phase": "continuous_20turns",
+        "error_type": "URLError",
+        "provider_calls": 0
+      },
+      {
+        "phase": "FETCH_SMALL",
+        "error_type": "URLError",
+        "provider_calls": 0
+      },
+      {
+        "phase": "FETCH_SMALL",
+        "error_type": "URLError",
+        "provider_calls": 0
+      },
+      {
+        "phase": "FETCH_SMALL",
+        "error_type": "URLError",
+        "provider_calls": 0
+      },
+      {
+        "phase": "FETCH_LARGE",
+        "error_type": "URLError",
+        "provider_calls": 0
+      },
+      {
+        "phase": "FETCH_LARGE",
+        "error_type": "URLError",
+        "provider_calls": 0
+      },
+      {
+        "phase": "FETCH_LARGE",
+        "error_type": "URLError",
+        "provider_calls": 0
+      },
+      {
+        "phase": "FETCH_FAIL",
+        "error_type": "URLError",
+        "provider_calls": 0
+      },
+      {
+        "phase": "FETCH_FAIL",
+        "error_type": "URLError",
+        "provider_calls": 0
+      },
+      {
+        "phase": "FETCH_FAIL",
+        "error_type": "URLError",
+        "provider_calls": 0
+      },
+      {
+        "phase": "SEARCH_PUBLIC",
+        "error_type": "URLError",
+        "provider_calls": 0
+      },
+      {
+        "phase": "SEARCH_PUBLIC",
+        "error_type": "URLError",
+        "provider_calls": 0
+      },
+      {
+        "phase": "SEARCH_PUBLIC",
+        "error_type": "URLError",
+        "provider_calls": 0
+      }
+    ],
+    "gateway_exit": -9,
+    "gateway_group_remaining": true,
+    "continuous_message_counts": []
+  },
+  "_cgroup_last": {
+    "memory.current": "52527104",
+    "memory.peak": "805306368",
+    "memory.events": "low 0\nhigh 0\nmax 219\noom 6\noom_kill 2\noom_group_kill 0"
+  },
+  "_max_process_VmHWM_mib": 675.08203125
+}

@@ -1,0 +1,13 @@
+unix_time,phase,tree_rss_kib,tree_pss_kib,process_count,mem_available_kib,host_swap_used_kib,cgroup_memory_current_bytes,cgroup_memory_peak_bytes,cgroup_events
+1793178816.8341885,startup_1,0,0,0,15101728,0,13455360,13455360,low 0;high 0;max 0;oom 0;oom_kill 0;oom_group_kill 0
+1793178817.3377385,startup_1,113032,111904,1,15064348,0,74637312,74637312,low 0;high 0;max 0;oom 0;oom_kill 0;oom_group_kill 0
+1793178817.8406246,startup_1,146852,145724,1,15030444,0,109989888,109989888,low 0;high 0;max 0;oom 0;oom_kill 0;oom_group_kill 0
+1793178818.3437934,startup_1,178400,177272,1,15002084,0,140013568,140013568,low 0;high 0;max 0;oom 0;oom_kill 0;oom_group_kill 0
+1793178818.8474529,startup_1,210672,209544,1,14970500,0,174747648,178208768,low 0;high 0;max 0;oom 0;oom_kill 0;oom_group_kill 0
+1793178819.353268,startup_1,277228,276100,1,14915152,0,240812032,240812032,low 0;high 0;max 0;oom 0;oom_kill 0;oom_group_kill 0
+1793178819.8606045,startup_1,369772,319100,2,14871556,0,285577216,285577216,low 0;high 0;max 0;oom 0;oom_kill 0;oom_group_kill 0
+1793178820.3708074,startup_1,468204,367425,3,14825692,0,336314368,336314368,low 0;high 0;max 0;oom 0;oom_kill 0;oom_group_kill 0
+1793178820.881144,startup_1,497424,393885,3,14785800,0,365973504,365973504,low 0;high 0;max 0;oom 0;oom_kill 0;oom_group_kill 0
+1793178821.3910666,startup_1,570512,465171,3,14719792,0,440655872,440655872,low 0;high 0;max 0;oom 0;oom_kill 0;oom_group_kill 0
+1793178821.9444838,startup_1,588856,483515,3,14695688,0,460578816,460578816,low 0;high 0;max 0;oom 0;oom_kill 0;oom_group_kill 0
+1793178822.4582279,startup_1,665280,559939,3,14635524,0,536715264,536870912,low 0;high 0;max 13;oom 0;oom_kill 0;oom_group_kill 0

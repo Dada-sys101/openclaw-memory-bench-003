@@ -1,0 +1,35 @@
+{
+  "startup_1": {
+    "seconds": 5.12,
+    "samples": 11,
+    "pss_median_mib": 311.62,
+    "pss_peak_mib": 546.82,
+    "rss_median_mib": 361.11,
+    "rss_peak_mib": 649.69,
+    "early30_pss_median_mib": 311.62,
+    "late30_pss_median_mib": 311.62,
+    "cpu_pct_one_core": 121.08,
+    "max_processes": 3
+  },
+  "_verification": {
+    "requests_total": 1,
+    "gateway_model_path_verified": 0,
+    "tool_roundtrips": 0,
+    "requests_with_errors": [
+      {
+        "phase": "startup_1",
+        "fatal": "RuntimeError",
+        "detail": "Gateway exit -9"
+      }
+    ],
+    "gateway_exit": -9,
+    "gateway_group_remaining": true,
+    "continuous_message_counts": []
+  },
+  "_cgroup_last": {
+    "memory.current": "536715264",
+    "memory.peak": "536870912",
+    "memory.events": "low 0\nhigh 0\nmax 13\noom 0\noom_kill 0\noom_group_kill 0"
+  },
+  "_max_process_VmHWM_mib": 468.87890625
+}

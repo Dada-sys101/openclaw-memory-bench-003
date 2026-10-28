@@ -1,0 +1,149 @@
+[
+  {
+    "phase": "FETCH_SMALL",
+    "result": {
+      "url": "https://example.com",
+      "finalUrl": "https://example.com/",
+      "status": 200,
+      "extractor": "raw-html",
+      "truncated": false,
+      "length": 469,
+      "rawLength": 156,
+      "tookMs": 40
+    }
+  },
+  {
+    "phase": "FETCH_SMALL",
+    "result": {
+      "url": "https://example.com",
+      "finalUrl": "https://example.com/",
+      "status": 200,
+      "extractor": "raw-html",
+      "truncated": false,
+      "length": 469,
+      "rawLength": 156,
+      "tookMs": 40,
+      "cached": true
+    }
+  },
+  {
+    "phase": "FETCH_SMALL",
+    "result": {
+      "url": "https://example.com",
+      "finalUrl": "https://example.com/",
+      "status": 200,
+      "extractor": "raw-html",
+      "truncated": false,
+      "length": 469,
+      "rawLength": 156,
+      "tookMs": 40,
+      "cached": true
+    }
+  },
+  {
+    "phase": "FETCH_LARGE",
+    "result": {
+      "provider_visible_payload_truncated_or_non_json": true,
+      "received_chars": 8192,
+      "url": "https://www.rfc-editor.org/rfc/rfc9110.html",
+      "status": 200,
+      "length": 19658,
+      "rawLength": 345801,
+      "truncated": true,
+      "extractor": "raw-html"
+    }
+  },
+  {
+    "phase": "FETCH_LARGE",
+    "result": {
+      "provider_visible_payload_truncated_or_non_json": true,
+      "received_chars": 8192,
+      "url": "https://www.rfc-editor.org/rfc/rfc9110.html",
+      "status": 200,
+      "length": 19658,
+      "rawLength": 345801,
+      "truncated": true,
+      "cached": true,
+      "extractor": "raw-html"
+    }
+  },
+  {
+    "phase": "FETCH_LARGE",
+    "result": {
+      "provider_visible_payload_truncated_or_non_json": true,
+      "received_chars": 8192,
+      "url": "https://www.rfc-editor.org/rfc/rfc9110.html",
+      "status": 200,
+      "length": 19658,
+      "rawLength": 345801,
+      "truncated": true,
+      "cached": true,
+      "extractor": "raw-html"
+    }
+  },
+  {
+    "phase": "FETCH_FAIL",
+    "result": {
+      "status": "error",
+      "error_class": "ENOTFOUND"
+    }
+  },
+  {
+    "phase": "FETCH_FAIL",
+    "result": {
+      "status": "error",
+      "error_class": "ENOTFOUND"
+    }
+  },
+  {
+    "phase": "FETCH_FAIL",
+    "result": {
+      "status": "error",
+      "error_class": "ENOTFOUND"
+    }
+  },
+  {
+    "phase": "SEARCH_PUBLIC",
+    "result": {
+      "kind": "results",
+      "provider": "duckduckgo",
+      "count": 3,
+      "tookMs": 809,
+      "source_urls": [
+        "https://www.python.org/downloads/release/python-3140/",
+        "https://www.python.org/downloads/release/python-3143/",
+        "https://www.python.org/downloads/release/python-3148/"
+      ]
+    }
+  },
+  {
+    "phase": "SEARCH_PUBLIC",
+    "result": {
+      "kind": "results",
+      "provider": "duckduckgo",
+      "count": 3,
+      "tookMs": 809,
+      "cached": true,
+      "source_urls": [
+        "https://www.python.org/downloads/release/python-3140/",
+        "https://www.python.org/downloads/release/python-3143/",
+        "https://www.python.org/downloads/release/python-3148/"
+      ]
+    }
+  },
+  {
+    "phase": "SEARCH_PUBLIC",
+    "result": {
+      "kind": "results",
+      "provider": "duckduckgo",
+      "count": 3,
+      "tookMs": 809,
+      "cached": true,
+      "source_urls": [
+        "https://www.python.org/downloads/release/python-3140/",
+        "https://www.python.org/downloads/release/python-3143/",
+        "https://www.python.org/downloads/release/python-3148/"
+      ]
+    }
+  }
+]

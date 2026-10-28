@@ -1,0 +1,95 @@
+{
+  "gateway": {
+    "mode": "local",
+    "bind": "loopback",
+    "port": 18990,
+    "auth": {
+      "mode": "token",
+      "token": "[REDACTED_LOCAL_GATEWAY_TOKEN]"
+    },
+    "http": {
+      "endpoints": {
+        "chatCompletions": {
+          "enabled": true
+        }
+      }
+    }
+  },
+  "agents": {
+    "defaults": {
+      "workspace": "/bench/isolated/workspace",
+      "skipBootstrap": true,
+      "model": {
+        "primary": "bench/bench"
+      },
+      "maxConcurrent": 1
+    }
+  },
+  "models": {
+    "mode": "replace",
+    "providers": {
+      "bench": {
+        "baseUrl": "http://127.0.0.1:18991/v1",
+        "apiKey": "synthetic-not-a-real-key",
+        "api": "openai-completions",
+        "models": [
+          {
+            "id": "bench",
+            "name": "Synthetic upstream",
+            "contextWindow": 32768,
+            "contextTokens": 16384,
+            "maxTokens": 1024,
+            "reasoning": false,
+            "input": [
+              "text"
+            ],
+            "cost": {
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0
+            }
+          }
+        ]
+      }
+    }
+  },
+  "tools": {
+    "allow": [
+      "web_fetch",
+      "web_search"
+    ],
+    "web": {
+      "search": {
+        "enabled": true,
+        "provider": "duckduckgo"
+      },
+      "fetch": {
+        "enabled": true
+      }
+    },
+    "toolSearch": false
+  },
+  "browser": {
+    "enabled": false
+  },
+  "plugins": {
+    "load": {
+      "paths": [
+        "/bench/node_modules/@openclaw/duckduckgo-plugin"
+      ]
+    },
+    "entries": {
+      "duckduckgo": {
+        "enabled": true
+      }
+    },
+    "allow": [
+      "openai",
+      "duckduckgo"
+    ],
+    "slots": {
+      "memory": "none"
+    }
+  }
+}

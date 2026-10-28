@@ -1,0 +1,10 @@
+{
+  "original_timeseries_sha256": "61351f5f2b89a91a07d708bff2daf8b312710f45fa65fc011ca762fb0c1d9407",
+  "sample_count": 268,
+  "files": {
+    "analysis.json": "9f1f122da316b51470fc24e153ae6dfcc76576a7334c4636aed9c9e4d131ee03",
+    "container-state.json": "917b432f310d0b887c4f0d806a2a183c52741f208cc7c1a287cef7d2ca8b24e4",
+    "samples.csv": "8fbc843a6261660f03770566a6b631c4a3afbbfcc6da7ad3f7eee3b4e893cf7c",
+    "test-config.json": "30524bd6fb40d1dce153da4ff2607ea6c2a18a6f2bb28bf59cc2da1ad5bbac82"
+  }
+}
