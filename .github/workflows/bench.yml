@@ -1,0 +1,52 @@
+name: Isolated OpenClaw memory benchmark
+on: workflow_dispatch
+permissions:
+  contents: read
+concurrency:
+  group: memory-bench
+  cancel-in-progress: false
+jobs:
+  measure:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '26.12.1'
+      - name: Install locked dependencies (separate from runtime measurement)
+        shell: bash
+        run: |
+          mkdir -p evidence
+          node --version > evidence/node-version.txt
+          uname -a > evidence/kernel.txt
+          sha256sum package-lock.json > evidence/lock.sha256
+          /usr/bin/time -v -o evidence/install-time.txt npm ci --no-audit --no-fund > evidence/install.log 2>&1
+          npm ls --all --json > evidence/dependencies.json || true
+          node node_modules/openclaw/openclaw.mjs --version > evidence/openclaw-version.txt
+      - name: Real Gateway measurement
+        run: python3 bench.py
+      - name: Preserve bounded evidence in job logs (no artifact storage)
+        if: always()
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import tarfile,io,base64
+          root=Path('evidence')
+          for p in root.glob('*.log'):
+              if p.stat().st_size > 8*1024*1024:
+                  with p.open('rb') as f:
+                      f.seek(-8*1024*1024,2); data=f.read()
+                  p.write_bytes(data)
+          assert sum(p.stat().st_size for p in root.rglob('*') if p.is_file()) < 50*1024*1024
+          buffer=io.BytesIO()
+          with tarfile.open(fileobj=buffer,mode='w:gz') as archive:
+              archive.add(root,arcname='evidence')
+          data=base64.b64encode(buffer.getvalue()).decode()
+          assert len(data)<8*1024*1024
+          print('BENCH_EVIDENCE_BEGIN')
+          for i in range(0,len(data),4000):print('BENCH_DATA:'+data[i:i+4000])
+          print('BENCH_EVIDENCE_END')
+          PY
