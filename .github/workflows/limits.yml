@@ -31,6 +31,7 @@ jobs:
         shell: bash
         run: |
           trap 'docker rm -f ocbench-limit-512 ocbench-limit-768 ocbench-limit-2048 >/dev/null 2>&1 || true' EXIT
+          mkdir -p isolated
           docker pull node:26.12.1-bookworm > evidence/image-pull.log 2>&1
           image=$(docker image inspect node:26.12.1-bookworm --format '{{index .RepoDigests 0}}')
           echo "$image" > evidence/container-image-digest.txt
