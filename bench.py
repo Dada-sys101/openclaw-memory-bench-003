@@ -109,6 +109,7 @@ def stop():
         except subprocess.TimeoutExpired:
             os.killpg(gateway.pid,signal.SIGKILL);gateway.wait(timeout=10)
 def turn(text,user):
+    if gateway.poll() is not None:raise RuntimeError(f'Gateway exited before request: {gateway.returncode}')
     req=urllib.request.Request('http://127.0.0.1:18990/v1/chat/completions',data=json.dumps({'model':'openclaw:main','user':user,'messages':[{'role':'user','content':text}]}).encode(),headers={'Content-Type':'application/json','Authorization':'Bearer '+TOKEN})
     before=len(mock_calls)
     try:
